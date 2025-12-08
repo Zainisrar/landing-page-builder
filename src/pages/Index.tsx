@@ -3,6 +3,7 @@ import { Hero } from "@/components/Hero";
 import { HowItWorks } from "@/components/HowItWorks";
 import { Community } from "@/components/Community";
 import { Transform } from "@/components/Transform";
+import { FutureDesign } from "@/components/FutureDesign";
 
 const Index = () => {
   return (
@@ -12,6 +13,7 @@ const Index = () => {
       <HowItWorks />
       <Community />
       <Transform />
+      <FutureDesign />
     </main>
   );
 };
