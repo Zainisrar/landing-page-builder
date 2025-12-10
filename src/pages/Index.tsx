@@ -5,6 +5,7 @@ import { Community } from "@/components/Community";
 import { Transform } from "@/components/Transform";
 import { FutureDesign } from "@/components/FutureDesign";
 import { AppFeatures } from "@/components/AppFeatures";
+import { Testimonials } from "@/components/Testimonials";
 import { FAQ } from "@/components/FAQ";
 import { Footer } from "@/components/Footer";
 
@@ -18,6 +19,7 @@ const Index = () => {
       <Transform />
       <FutureDesign />
       <AppFeatures />
+      <Testimonials />
       <FAQ />
       <Footer />
     </main>
