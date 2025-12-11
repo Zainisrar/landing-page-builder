@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowUpRight } from "lucide-react";
+import { Link } from "react-router-dom";
 import heroImage from "@/assets/hero-garden.jpg";
 
 const stats = [
@@ -35,9 +36,11 @@ export const Hero = () => {
           
           {/* CTA Button */}
           <div className="animate-fade-in-up animate-delay-200">
-            <Button variant="hero" size="lg" className="group">
-              GET STARTED NOW
-              <ArrowUpRight className="ml-1 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+            <Button variant="hero" size="lg" className="group" asChild>
+              <Link to="/auth">
+                GET STARTED NOW
+                <ArrowUpRight className="ml-1 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+              </Link>
             </Button>
           </div>
           
