@@ -3,10 +3,15 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { ArrowLeft, Eye, EyeOff, Leaf } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useToast } from "@/hooks/use-toast";
 
+// Sample credentials for demo
+const DEMO_EMAIL = "demo@neighborbrite.com";
+const DEMO_PASSWORD = "demo123";
+
 const Auth = () => {
+  const navigate = useNavigate();
   const [isLogin, setIsLogin] = useState(true);
   const [showPassword, setShowPassword] = useState(false);
   const [email, setEmail] = useState("");
@@ -16,10 +21,33 @@ const Auth = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    toast({
-      title: isLogin ? "Login Attempted" : "Sign Up Attempted",
-      description: "Backend authentication not configured yet. Enable Lovable Cloud to add real authentication.",
-    });
+    
+    if (isLogin) {
+      // Validate credentials
+      if (email === DEMO_EMAIL && password === DEMO_PASSWORD) {
+        localStorage.setItem("isAuthenticated", "true");
+        toast({
+          title: "Welcome back!",
+          description: "Successfully logged in.",
+        });
+        navigate("/dashboard");
+      } else {
+        toast({
+          title: "Invalid credentials",
+          description: "Please use demo@neighborbrite.com / demo123",
+          variant: "destructive",
+        });
+      }
+    } else {
+      // For signup, just redirect to login
+      toast({
+        title: "Account created!",
+        description: "Please login with your credentials.",
+      });
+      setIsLogin(true);
+      setEmail("");
+      setPassword("");
+    }
   };
 
   return (
